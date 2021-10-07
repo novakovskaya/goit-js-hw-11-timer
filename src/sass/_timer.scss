@@ -1,0 +1,32 @@
+.timer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
+  width: 600px;
+  padding: 20px;
+  background-color: rgba(109, 109, 109, 0.5);
+  border-radius: 10px;
+}
+
+.timer-title {
+  margin: 20px;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+}
+
+.value {
+  color: #ff8c00;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.field:not(:last-child)::after {
+  content: ':';
+  position: relative;
+  top: 0;
+  left: 25%;
+  font-size: 24px;
+  color: white;
+}
