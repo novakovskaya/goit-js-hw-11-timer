@@ -1,12 +1,13 @@
-import refs from './refs';
-
-const PROMPT_DELAY = 1000;
-
 class CountdownTimer {
   constructor({ selector, targetDate }) {
-    this.selector = selector;
+    this.selector = document.querySelector(selector);
     this.targetDate = targetDate;
     this.intervalId = null;
+
+    this.timerDays = this.selector.querySelector('[data-value="days"]');
+    this.timerHours = this.selector.querySelector('[data-value="hours"]');
+    this.timerMins = this.selector.querySelector('[data-value="mins"]');
+    this.timerSecs = this.selector.querySelector('[data-value="secs"]');
   }
 
   start() {
@@ -16,7 +17,7 @@ class CountdownTimer {
 
       const time = this.getTimeComponents(startTime);
       this.insertValues(time);
-    }, PROMPT_DELAY);
+    }, 1000);
   }
 
   stop() {
@@ -37,10 +38,10 @@ class CountdownTimer {
   }
 
   insertValues({ days, hours, mins, secs }) {
-    refs.days.textContent = days;
-    refs.hours.textContent = hours;
-    refs.mins.textContent = mins;
-    refs.secs.textContent = secs;
+    this.timerDays.textContent = days;
+    this.timerHours.textContent = hours;
+    this.timerMins.textContent = mins;
+    this.timerSecs.textContent = secs;
   }
 }
 
